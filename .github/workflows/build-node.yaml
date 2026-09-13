@@ -3,7 +3,7 @@ name: Build
 on:
   push:
     tags:
-      - 'node-v*'
+      - 'node-*'
 
 env:
   REGISTRY: ghcr.io
