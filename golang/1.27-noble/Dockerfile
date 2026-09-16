@@ -18,7 +18,8 @@ RUN tar -C /usr/local -xzf go1.27.1.linux-amd64.tar.gz \
     && rm go1.27.1.linux-amd64.tar.gz
 
 ENV PATH=$PATH:/usr/local/go/bin
-ENV PATH="$PATH:$(go env GOPATH)/bin"
+ENV GOPATH=/root/go
+ENV PATH="${GOPATH}/bin:${PATH}"
 
 WORKDIR /
 
