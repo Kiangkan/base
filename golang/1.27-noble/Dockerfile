@@ -6,6 +6,10 @@ RUN curl -LO --fail https://go.dev/dl/go1.27.1.linux-amd64.tar.gz
 
 FROM ubuntu:24.04
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /tmp
 
 COPY --from=download-golang /tmp/go1.27.1.linux-amd64.tar.gz go1.27.1.linux-amd64.tar.gz
